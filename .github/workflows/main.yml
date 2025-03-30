@@ -39,7 +39,7 @@ jobs:
           node-version: lts/*
           cache: 'npm' # Set this to npm, yarn or pnpm.
 
-      -name: install tsc
+      - name: install tsc
         run: npm i -g typescript
 
       - name: install Rust stable
