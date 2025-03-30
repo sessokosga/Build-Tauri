@@ -4,6 +4,7 @@
     "vite": "^6.2.3"
   },
   "dependencies": {
+    "@tauri-apps/plugin-updater": "^2.6.1",
     "littlejsengine": "^1.11.4",
     "tsc": "^2.0.4",
     "typescript": "^5.8.2"

@@ -1,0 +1,497 @@
+.body {
+    /* position: absolute; */
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    background: #fff;
+}
+
+
+.activity_log {
+    z-index: 185;
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    background-color: black;
+    color: #fff;
+    padding: 5px 10px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.activity_log li::before {
+    content: "• ";
+}
+
+.activity_log li {
+    opacity: .7;
+}
+
+
+.activity_log li:nth-last-child(1)::before {
+    content: "≻ ";
+}
+
+.activity_log li:nth-last-child(1)::after {
+    content: " |";
+}
+
+
+.activity_log li:nth-last-child(1)::after {
+    animation: blinke .7s infinite;
+}
+
+@keyframes blinke {
+    0% {
+        opacity: 1;
+        ;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+
+    }
+}
+
+.activity_log li:nth-last-child(1) {
+    opacity: 1;
+}
+
+
+/* Header */
+header {
+    margin-top: 100px;
+    padding: 0 10px;
+}
+
+#btn_speed_moon{
+    padding: 2px 5px;
+}
+
+.moon .icon-only:before {
+    content: "‖";
+}
+
+
+
+.moon>*+* {
+    margin-left: 5px;
+}
+
+.status {
+    margin-left: 100px;
+    align-items: center;
+}
+
+.status li+li {
+    margin-left: 40px;
+}
+
+
+
+.main,
+header,
+.status {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.main section h2 {
+    text-align: center;
+}
+
+section {
+    padding: 10px 15px;
+    width: 200px;
+    /* background-color: yellow; */
+}
+
+section+section {
+    margin-left: 10px;
+}
+
+/* Job */
+
+.job {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.job>* {
+    display: block;
+}
+
+.job .title,
+.inventory .item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.job progress {
+    visibility: hidden;
+    width: 0%;
+    transition: .3s;
+    align-self: flex-start;
+}
+
+/* Buttons */
+
+.icon-only {
+    width: 25px;
+    height: 20px;
+}
+
+
+.icon-increase:before {
+    content: "+";
+}
+
+.icon-lower:before {
+    content: "-";
+}
+
+.icon-play:before {
+    content: "►";
+}
+
+.item {
+    width: 150px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+section li+li {
+    margin-top: 10px;
+}
+
+.quests {
+    height: 300px;
+    margin-bottom: 70px;
+}
+
+#quest_container {
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* shop */
+.shop {
+    width: 300px;
+}
+
+.adjust_amount {
+    width: 50px;
+    text-align: right;
+}
+
+.shop .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    text-align: center;
+}
+
+tbody td:nth-child(1) {
+    text-align-last: left;
+}
+
+tbody,
+tfoot {
+    text-align: right;
+
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tfoot td:nth-child(1) {
+    text-align: center;
+}
+
+#btn_sell {
+    margin-top: 20px;
+    padding: 3px 15px;
+    margin-left: 40%;
+}
+
+.alert_dialog button {
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+.alert_dialog {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -30%);
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    padding-top: 10px;
+}
+
+.alert_dialog h2,
+.alert_dialog p {
+    padding: 0 0;
+    margin: 0;
+}
+
+.alert_dialog h2{
+    margin-top: 10px;   
+}
+
+.alert_dialog h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.alert_dialog p {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.btn_alert {
+    padding: 5px 10px;
+}
+
+.blink {
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: red;
+        ;
+    }
+
+    50% {
+        color: black;
+    }
+
+    100% {
+        color: red;
+
+    }
+}
+
+/* Projects */
+.projects {
+    width: 350px;
+    text-align: left;
+}
+
+.project {
+    transition: .3s;
+    background-color: #e1dfdf;
+    padding: 10px;
+    width: 100%;
+}
+
+.project[aria-disabled="true"] {
+    background-color: #f5f5f5;
+}
+
+.project[aria-disabled="false"]:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.project_title {
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.project_name {
+    margin-right: 10px;
+}
+
+.project_cost {
+    font-weight: normal;
+}
+
+.project_description {
+    margin-top: 5;
+    margin-bottom: 0;
+}
+
+.details {
+    overflow-y: auto;
+}
+
+#suggest_prestige div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.alert_dialog div button{
+    margin: 0;
+    transform: none;
+}
+
+#prestige{
+    width: 400px;
+   
+    display: flex;
+    flex-direction: column;
+}
+
+#suggest_prestige ul {
+    list-style-type: disc;
+    padding: inherit;
+    margin: 0;
+    margin-left: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#prestige p{
+    /* margin: 0; */
+    padding-bottom: 0;
+}
+
+#select_prestige button{
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+
+@media only screen and (max-width:720px) {
+    .body{
+        font-size: 15px;
+    }
+
+    .main{
+        padding-bottom: 50px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #prestige{
+        width: calc(100% - 55px);
+    }
+
+    section {
+        padding: 5px 0;
+        max-width: calc(100% - 20px);
+    }
+
+    #progress_moon {
+        width: 60px;
+    }
+
+    header{
+        margin-top: 70px;
+        width: 100%;
+        background-color: #fff;
+        margin-bottom: 7px;
+        padding: 0;
+    }
+
+    .status {
+        width: 100%;
+        z-index: 185;
+        margin-left: 0;
+        align-items: left;
+        position: fixed;
+        margin-top: 0;
+        padding-top: 5px;
+        background-color: #fff;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+
+    .status li {
+        margin-bottom: 4px;
+    }
+
+    .status li+li {
+        margin-bottom: 4px;
+        margin-left: 15px;
+    }
+
+    .projects {
+        text-align: left;
+    }
+
+    .project {
+        padding: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .details {
+        height: 150px;
+        padding: 0 10px;
+    }
+
+    .left {
+
+        width: 100%;
+    }
+
+    .icon-only {
+        width: 30px;
+        height: 25px;
+    }
+
+    .icon-only:before {
+        font-size: 16px;
+        padding-bottom: 5px;
+    }
+
+    .quests {
+        height: 150px;
+        max-height: 300px;
+    }
+
+    .activity_log {
+        height: 60px;
+        font-size: 12px;
+    }
+}
