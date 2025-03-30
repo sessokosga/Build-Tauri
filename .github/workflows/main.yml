@@ -39,11 +39,12 @@ jobs:
           node-version: lts/*
           cache: 'npm' # Set this to npm, yarn or pnpm.
 
-      - name: install tsc
-        run: npm i -g typescript
 
       - name: install vite
         run: npm i -g vite
+        
+      - name: install tsc
+        run: npm i -g typescript
 
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable # Set this to dtolnay/rust-toolchain@nightly
