@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Idle Island</title>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="parent_body" class="body">
+<div id="body" style="display: none;" class="body">
+    <div class="activity_log">
+        <ul id="activity_log_container">
+            <li></li>
+            <li></li>
+            <li>Welcome to Idle Island</li>
+        </ul>
+    </div>
+    <header>
+        <ul class="status">
+            <li class="moon">
+                <span>Moon:</span><span id="lab_moon_count">0</span>
+                <progress id="progress_moon" min="0" max="100" value="0"></progress>
+                <button title="Play" id="btn_pause_moon" class="icon-only icon-play" type="button"></button>
+                <button title="Speed" id="btn_speed_moon" type="button">Speed x<span id="lab_moon_speed">1</span></button>
+            </li>
+            <li class="">
+                <span class="blink" style="color:red; display: none;" id="lab_food_count_red">Food 0/15</span>
+                <span id="lab_food_count">Food 0/2</span>
+            </li>
+            <li id="status_money" style="display: none;" class="">
+                <span>Money:</span> <span id="lab_money_count">0</span>
+            </li>
+        </ul>
+    </header>
+    <main class="main" id="main">
+        <section class="left">
+            <div class="quests">
+                <h2>Quests</h2>
+                <ul id="quest_container">
+                </ul>
+            </div>
+            <div class="details">
+                <h2 id="detail_title">Details</h2>
+                <p id="detail">Task details</p>
+            </div>
+        </section>
+        <section class="actions">
+            <div class="jobs" style="display: none;">
+                <h2>Jobs</h2>
+                <ul id="job_container"></ul>
+            </div>
+            <div class="construction" style="display: none;">
+                <h2>Construction</h2>
+                <ul id="construction_container"></ul>
+            </div>
+            <div class="exploration" style="display: none;">
+                <h2>Exploration</h2>
+                <ul id="exploration_container"></ul>
+            </div>
+            <div class="reproduction" style="display: none;">
+                <h2>Reproduction</h2>
+                <ul id="reproduction_container"></ul>
+            </div>
+        </section>
+        <section class="inventory">
+            <h2>Inventory</h2>
+            <ul>
+                <li style="visibility: hidden;" class="item">
+                    <span>Berries</span> <span id="lab_berry_count">0/15</span>
+                </li>
+                <li style="visibility: hidden;" class="item">
+                    <span>Woods</span> <span id="lab_wood_count">0/15</span>
+                </li>
+                <li style="visibility: hidden;" class="item">
+                    <span>Sticks</span> <span id="lab_stick_count">0/15</span>
+                </li>
+                <li style="visibility: hidden;" class="item">
+                    <span>Stones</span> <span id="lab_stone_count">0/15</span>
+                </li>
+                <li class="item">
+                    <span>Villagers</span> <span id="lab_villager_count">1/2</span>
+                </li>
+                <li style="visibility: hidden;" class="item">
+                    <span>Houses</span> <span id="lab_house_count">0/2</span>
+                </li>
+                <li style="visibility: hidden;" class="item">
+                    <span>Offsprings</span> <span id="lab_offspring_count">0/2</span>
+                </li>
+            </ul>
+        </section>
+        <section class="shop" id="shop" style="display: none;">
+            <h2>Shop</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Resources</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="name_berries">Berries</td>
+                    <td id="price_berries">2</td>
+                    <td><input class="adjust_amount" type="number" min="0" id="amount_berries" value="1"></td>
+                    <td class="total" id="total_berries">40</td>
+                </tr>
+                <tr>
+                    <td id="name_woods">Woods</td>
+                    <td id="price_woods">2</td>
+                    <td><input class="adjust_amount" type="number" min="0" id="amount_woods" value="1"></td>
+                    <td class="total" id="total_woods">40</td>
+                </tr>
+                <tr>
+                    <td id="name_sticks">Sticks</td>
+                    <td id="price_sticks">2</td>
+                    <td><input class="adjust_amount" type="number" min="0" id="amount_sticks" value="1"></td>
+                    <td class="total" id="total_sticks">40</td>
+                </tr>
+                <tr>
+                    <td id="name_stones">Stones</td>
+                    <td id="price_stones">2</td>
+                    <td><input class="adjust_amount" type="number" min="0" id="amount_stones" value="1"></td>
+                    <td class="total" id="total_stones">40</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td id="shop_total" class="total">0</td>
+                </tr>
+                </tfoot>
+            </table>
+            <button disabled id="btn_sell">Sell</button>
+        </section>
+        <section class="projects" id="projects" style="display: none;">
+            <h2>Projects</h2>
+            <ul id="project_container">
+            </ul>
+        </section>
+
+    </main>
+</div>
+<div class="alert_dialog" id="game_over" style="display: none;">
+    <h2 id="alert_title">Game Over </h2>
+    <p id="alert_content">Everone starved to death</p>
+    <p>You reached moon <span id="moon_reached">1</span></p>
+    <button class="btn_alert" id="btn_new_game">New Game</button>
+</div>
+<div class="alert_dialog" id="welcome" style="display: none;">
+    <h2 id="alert_title">Idle Island</h2>
+    <p id="alert_content">Manage Villagers and earn resources</p>
+    <p>Remember to feed villagers each moon </p>
+    <p>Villagers seem to like berries, so you may start by gathering some of it</p>
+    <button class="btn_alert" id="btn_start_game">Start</button>
+</div>
+<div class="alert_dialog" id="prestige" style="display: none;">
+    <h2 id="alert_title">You reached Moon 100</h2>
+    <div id="suggest_prestige">
+        <p>Thank you for playing that long</p>
+        <p>You can decide to <b>Prestige</b>. You will start again and choose among these advantages.
+        <ul>
+            <li>Twice the number of initial villagers</li>
+            <li>Resources prices are increased by 25%</li>
+            <li>Double the result of jobs</li>
+            <li>Reduce project cost by 10%</li>
+        </ul>
+        </p>
+        <p>Or you can <b>Keep playing</b></p>
+        <div>
+            <button class="btn_alert" id="btn_prestige">Prestige</button>
+            <button class="btn_alert" id="btn_keep_playing">Keep Playing</button>
+        </div>
+    </div>
+    <div id="select_prestige" style="display: none;">
+        <p>Choose you Prestige</p>
+        <div>
+            <button class="prestige_choice" id="double_initial_villagers">Twice the number of initial villagers</button>
+            <button class="prestige_choice" id="reduce_project_cost_by_10">Reduce projects cost by 10%</button>
+            <button class="prestige_choice" id="increase_resource_price_by_25">Resources prices are increased by 25%
+            </button>
+            <button class="prestige_choice" id="double_job_production">Double the result of jobs</button>
+        </div>
+    </div>
+</div>
+
+<audio preload="auto" id="sfx_new_game" src="sfx/new_game.ogg"></audio>
+<audio preload="auto" id="sfx_click" src="sfx/click.ogg"></audio>
+<audio preload="auto" id="sfx_task_cancelled" src="sfx/task_cancelled.ogg"></audio>
+<audio preload="auto" id="sfx_task_start" src="sfx/task_start.ogg"></audio>
+<audio preload="auto" id="sfx_game_over" src="sfx/game_over.ogg"></audio>
+<audio preload="auto" id="sfx_moon_pause" src="sfx/moon_pause.ogg"></audio>
+<audio preload="auto" id="sfx_quest_complete" src="sfx/quest_complete.ogg"></audio>
+<audio id="music_background" src="music/1. Playground 0.ogg" loop preload="auto"></audio>
+
+<script src="/src/game.ts" type="module"></script>
+
+</body>
+</html>

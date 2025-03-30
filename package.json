@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "vite": "^6.2.3"
+  },
+  "dependencies": {
+    "littlejsengine": "^1.11.4"
+  }
+}
