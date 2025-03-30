@@ -4,6 +4,8 @@
     "vite": "^6.2.3"
   },
   "dependencies": {
-    "littlejsengine": "^1.11.4"
+    "littlejsengine": "^1.11.4",
+    "tsc": "^2.0.4",
+    "typescript": "^5.8.2"
   }
 }
