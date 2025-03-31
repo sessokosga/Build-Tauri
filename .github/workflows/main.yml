@@ -14,10 +14,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - platform: 'macos-latest' # for Arm based macs (M1 and above).
-            # args: '--target aarch64-apple-darwin'
-          # - platform: 'macos-latest' # for Intel based macs.
-            # args: '--target x86_64-apple-darwin'
+          - platform: 'macos-latest' # for Arm based macs (M1 and above).
+            args: '--target aarch64-apple-darwin'
+          - platform: 'macos-latest' # for Intel based macs.
+            args: '--target x86_64-apple-darwin'
           - platform: 'ubuntu-22.04'
             args: ''
           - platform: 'windows-latest'
@@ -39,9 +39,10 @@ jobs:
           node-version: lts/*
           cache: 'npm' # Set this to npm, yarn or pnpm.
 
-      -name: install tsc
-        run: npm i -g typescript
 
+      - name: install vite
+        run: npm i -g vite
+        
       - name: install tsc
         run: npm i -g typescript
 
@@ -63,6 +64,7 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
         with:
           tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
           releaseName: 'App v__VERSION__'
